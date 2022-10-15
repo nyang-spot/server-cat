@@ -17,3 +17,5 @@ $ npm run start:w  // watch 기능
 ```sh
 $ docker-compose up --build -d
 ```
+
+위 명령어를 실행 후 `npm run db:push`를 실행 해야 db에 테이블이 생성됩니다.
