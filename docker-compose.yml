@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+    psql:
+        container_name: cat_psql
+        image: postgres
+        restart: unless-stopped
+        env_file:
+            - .env
+        volumes:
+            - ./data/:/var/lib/postgresql/data
+        ports:
+            - 5432:5432
+    node:
+        container_name: cat_node_server
+        build:
+            context: ./
+        restart: unless-stopped
+        command: npm run start
+        ports:
+            - 3000:3000
+        env_file:
+            - .env
+        environment:
+            - DATABASE_URL=postgresql://cats:rootpw@cat_psql:5432/cats
+        depends_on:
+            - cat_psql
