@@ -8,7 +8,8 @@ if (require.main === module) {
   (async () => {
     await Prisma.users.create({
       data: {
-        name: "Im-JJang-goyangE"
+        name: "Im-JJang-goyangE",
+        location: "gannamgu"
       }
     });
     const users = await Prisma.users.findMany({});
