@@ -1,54 +1,56 @@
 generator client {
-    provider        = "prisma-client-js"
-    previewFeatures = ["interactiveTransactions"]
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Users {
-    id       Int     @id @default(autoincrement())
-    name      String @db.VarChar(255) @unique
-    location String @db.VarChar(100)
-    cats Cats[]
-    likes Likes[]
+  id       Int     @id @default(autoincrement())
+  name     String  @unique @db.VarChar(255)
+  location String  @db.VarChar(100)
+  cats     Cats[]
+  likes    Likes[]
 
-    createdAt DateTime @default(now()) @map("created_at")
-    updatedAt DateTime? @map("updated_at")
-    deletedAt DateTime? @map("deleted_at")
-    @@map("users")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime? @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("users")
 }
 
 model Cats {
-    id       Int     @id @default(autoincrement())
-    description      String @db.VarChar(255) @unique
-    latitude Int
-    longitude Int
+  id          Int    @id @default(autoincrement())
+  description String @unique @db.VarChar(255)
+  location    String @db.VarChar(100)
+  latitude    Int
+  longitude   Int
 
-    author   Users @relation(fields: [authorId], references: [id])
-    authorId Int
+  author   Users @relation(fields: [authorId], references: [id])
+  authorId Int
 
-    likes Likes[]
+  likes Likes[]
 
-    createdAt DateTime @default(now()) @map("created_at")
-    updatedAt DateTime? @map("updated_at")
-    deletedAt DateTime? @map("deleted_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime? @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
 
-    @@map("cats")
+  @@map("cats")
 }
 
 model Likes {
-    user Users @relation(fields: [userId], references: [id])
-    userId Int @map("user_id")
-    cat Cats @relation(fields: [catId], references: [id])
-    catId Int @map("cat_id")
+  user   Users @relation(fields: [userId], references: [id])
+  userId Int   @map("user_id")
+  cat    Cats  @relation(fields: [catId], references: [id])
+  catId  Int   @map("cat_id")
 
-    createdAt DateTime @default(now()) @map("created_at")
-    updatedAt DateTime? @map("updated_at")
-    deletedAt DateTime? @map("deleted_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime? @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
 
-    @@id([userId, catId])
-    @@map("likes")
+  @@id([userId, catId])
+  @@map("likes")
 }
