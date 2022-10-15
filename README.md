@@ -15,5 +15,5 @@ $ npm run start:w  // watch 기능
 ## 도커 실행
 
 ```sh
-$ docker-compose up -d
+$ docker-compose up --build -d
 ```
