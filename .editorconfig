@@ -1,0 +1,8 @@
+root = true
+
+[*]
+end_of_line = lf
+
+[*.{json,js,ts,yaml}]
+charset = utf-8
+indent_style = 4

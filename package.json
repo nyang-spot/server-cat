@@ -1,0 +1,16 @@
+{
+  "name": "server-cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "start:w": "nodemon --watch src/** --ext ts,json --ignore src/**/*.spec.ts --exec ts-node ./src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

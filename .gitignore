@@ -1,0 +1,15 @@
+/node_modules
+/dist
+/logs
+/log-data
+.env.test
+.env
+
+
+.DS_Store
+*.pem
+*.crt
+*.key
+logs
+serviceAccountKey.json
+awsconfig.*
