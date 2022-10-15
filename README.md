@@ -4,4 +4,8 @@
 
 ```sh
 $ npm run build && npm run start
+
+또는
+
+$ npm run start:w  // watch 기능
 ```

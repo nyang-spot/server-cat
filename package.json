@@ -1,16 +1,38 @@
 {
-  "name": "server-cat",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./dist/index.js",
-    "start:w": "nodemon --watch src/** --ext ts,json --ignore src/**/*.spec.ts --exec ts-node ./src/index.ts"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.8.4"
-  }
+    "name": "server-cat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "scripts": {
+        "prepare": "husky install",
+        "build": "tsc",
+        "start": "node ./dist/index.js",
+        "start:w": "nodemon --watch src/** --ext ts,json --ignore src/**/*.spec.ts --exec ts-node ./src/index.ts",
+        "lint": "eslint ./src",
+        "lint:es:fix": "eslint --ext js --ext ts './' --fix",
+        "prettier": "prettier --write src/**/*.ts",
+        "prettier:fix": "prettier --write src/**/*.ts --fix",
+        "lint-staged": "lint-staged"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^4.8.4",
+        "@typescript-eslint/eslint-plugin": "^5.40.0",
+        "@typescript-eslint/parser": "^5.40.0",
+        "eslint": "^8.25.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1"
+    },
+    "lint-staged": {
+        "src/**/*.ts": [
+            "eslint --fix",
+            "prettier --write",
+            "git add"
+        ]
+    }
 }
