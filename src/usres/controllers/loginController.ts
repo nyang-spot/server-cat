@@ -18,5 +18,5 @@ export const loginController = async (
 
   const user = await loginService({ name, location }, Prisma);
 
-  res.json({ user });
+  res.json(user);
 };
