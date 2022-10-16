@@ -24,10 +24,11 @@ model Users {
 
 model Cats {
   id          Int    @id @default(autoincrement())
-  description String @unique @db.VarChar(255)
+  description String @db.VarChar(255)
   location    String @db.VarChar(100)
   latitude    Int
   longitude   Int
+  image       String @db.VarChar(255)
 
   author   Users @relation(fields: [authorId], references: [id])
   authorId Int

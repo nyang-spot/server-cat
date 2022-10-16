@@ -13,7 +13,7 @@ if (require.main === module) {
         {
           description: "seed 1",
           location: user.location,
-          //   location: "gannamgu",
+          image: "이미지파일?",
           latitude: 10,
           longitude: 10,
           authorId: user.id
