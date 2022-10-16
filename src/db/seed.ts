@@ -21,6 +21,10 @@ if (require.main === module) {
       ]
     });
 
+    await prisma.likes.create({
+      data: { userId: user.id, catId: 1 }
+    });
+
     console.log("cats :", cats);
   })();
 }
