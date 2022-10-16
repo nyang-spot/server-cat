@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import { CORS_CONFIG, PORT } from "./config";
 import { userRouter } from "./usres";
+import { catRouter } from "./cats";
+import { errorHandler } from "./lib/error-handler";
 
 export const main = async () => {
   const app = express();
@@ -15,6 +17,9 @@ export const main = async () => {
   });
 
   app.use(userRouter);
+  app.use(catRouter);
+
+  app.use(errorHandler);
 
   return app;
 };
