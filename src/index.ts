@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import path from "path";
 import { CORS_CONFIG, PORT } from "./config";
 import { userRouter } from "./usres";
 import { catRouter } from "./cats";
@@ -11,6 +12,7 @@ export const main = async () => {
   app.use(cors(CORS_CONFIG));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
+  app.use("/", express.static(path.join(__dirname, "../images")));
 
   app.get("/ping", (req, res) => {
     res.json({ msg: "pong" });
