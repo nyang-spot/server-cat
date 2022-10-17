@@ -33,6 +33,5 @@ https://github.com/street-cat-fighter/server-cat/wiki/1.-REST-API-%EB%AC%B8%EC%8
 ## 🎈냥스팟 백엔드 소개
 |하얀|슈|
 |-----|-----|
-|<img src="https://avatars.githubusercontent.com/u/50390565?v=4" alt="drawing" width="100"/>|<img src="https://i.imgur.com/Ge9LJu7.png" alt="drawing" width="100"/>
-|
+|<img src="https://avatars.githubusercontent.com/u/50390565?v=4" alt="drawing" width="100"/>|<img src="https://i.imgur.com/Ge9LJu7.png" alt="drawing" width="100"/>|
 |[@ehgks0000](https://github.com/ehgks0000)|[@dawwson](https://github.com/dawwson)|
