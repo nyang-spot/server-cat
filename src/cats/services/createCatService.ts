@@ -1,10 +1,11 @@
 // import type { PrismaClient } from "@prisma/client";
+import type { PrismaClient } from "@prisma/client";
 import { HOST, PORT } from "../../config";
-import prisma from "../../db";
 
 export const createCatService = async (
   userInfo: { id: number },
-  catInfo: { description: string; location: string; latitude: number; longitude: number; fileName: string }
+  catInfo: { description: string; location: string; latitude: number; longitude: number; fileName: string },
+  prisma: PrismaClient
 ) => {
   // 1. imageUrl 생성
   const imageUrl = `${HOST}:${PORT}/${catInfo.fileName}`;
