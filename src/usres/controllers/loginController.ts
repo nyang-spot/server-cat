@@ -6,7 +6,9 @@ const randomString = () => {
   return Math.floor(1000 + Math.random() * 9000);
 };
 
-// Server에서 name 생성하여 user create
+/**
+ * @depreated Use auth/routes
+ */
 export const loginController = async (
   { query: { location: _location } }: Request<unknown, unknown, { name: string }, { location: string }>,
   res: Response

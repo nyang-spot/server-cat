@@ -29,6 +29,6 @@ export const getCatByIdController = async (req: Request<ReqParam, unknown, unkno
     throw new Error("No User");
   }
 
-  const cat = await getCatByIdService({ id: user.id, catId: Number(catId), location: user.location }, Prisma);
+  const cat = await getCatByIdService({ id: user.id, catId: Number(catId), location: user.location! }, Prisma);
   res.json(cat);
 };

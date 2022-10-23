@@ -4,6 +4,7 @@ import { loginController } from "./controllers/loginController";
 
 const userRouter = Router();
 
+// @depreated Use /auth/routes
 userRouter.route("/login").get(asyncHandler(loginController));
 
 export { userRouter };

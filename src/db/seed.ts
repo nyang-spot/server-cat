@@ -4,6 +4,7 @@ if (require.main === module) {
   (async () => {
     const user = await prisma.users.create({
       data: {
+        email: "test@gmail.com",
         name: "test user",
         location: "gannamgu"
       }
@@ -12,7 +13,7 @@ if (require.main === module) {
       data: [
         {
           description: "seed 1",
-          location: user.location,
+          location: user.location!,
           image: "이미지파일?",
           latitude: 10,
           longitude: 10,
