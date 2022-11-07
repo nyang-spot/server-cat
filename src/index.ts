@@ -9,6 +9,8 @@ import { userRouter } from "./usres";
 import { catRouter } from "./cats";
 import { errorHandler } from "./lib/error-handler";
 import { authRouter } from "./auths";
+import { requestLoggerMiddleware } from "./middlewares/log";
+import { errorMiddleware } from "./middlewares/error";
 
 export const main = async () => {
   // const client = redis.createClient({ url: REDIS_URL });
@@ -29,6 +31,8 @@ export const main = async () => {
   app.use(passport.initialize());
   app.use(passport.session());
 
+  app.use(requestLoggerMiddleware);
+
   app.use("/", express.static(path.join(__dirname, "../images")));
 
   app.get("/ping", (req, res) => {
@@ -39,7 +43,12 @@ export const main = async () => {
   app.use(userRouter);
   app.use(catRouter);
 
+  app.use("*", (req, res) => {
+    res.status(404).json({ msg: "404" });
+  });
+
   app.use(errorHandler);
+  app.use(errorMiddleware);
 
   return app;
 };

@@ -2,3 +2,6 @@
 /dist
 .env
 data
+
+.pem
+logs
