@@ -2,3 +2,5 @@
 /dist
 .env
 data
+
+.pem
