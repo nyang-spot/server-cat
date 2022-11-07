@@ -9,7 +9,8 @@ if (require.main === module) {
     await Prisma.users.create({
       data: {
         name: "Im-JJang-goyangE",
-        location: "gannamgu"
+        location: "gannamgu",
+        email: "test@gmail.com"
       }
     });
     const users = await Prisma.users.findMany({});

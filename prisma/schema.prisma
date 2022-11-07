@@ -10,8 +10,9 @@ datasource db {
 
 model Users {
   id       Int     @id @default(autoincrement())
-  name     String  @unique @db.VarChar(255)
-  location String  @db.VarChar(100)
+  email String  @db.VarChar(50) @unique()
+  name     String?  @unique @db.VarChar(100)
+  location String?  @db.VarChar(100)
   cats     Cats[]
   likes    Likes[]
 
