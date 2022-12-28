@@ -28,7 +28,8 @@ export const createCatController = async (req: Request, res: Response) => {
       latitude: Number(req.body.latitude),
       longitude: Number(req.body.longitude),
       fileName: (req.files as { [fieldname: string]: Express.Multer.File[] }).catImage[0].filename
-    }
+    },
+    Prisma
   );
   res.json({ id: newCat.id });
 };
